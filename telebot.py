@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 #command method execution
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v6.9\n/start for this message\n/nigga for cute poetry aka BARS\n/bruh for surprise\n/madarchod for haha very nice desi meme\n/caps <text>\nsay the word \"idiot\" for a strongly worded copypasta\n/gay for the gayest picture you can ever find")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="v7.0\n/start for this message\n/nigga for cute poetry aka BARS\n/bruh for surprise\n/madarchod for haha very nice desi meme\n/caps <text>\nsay the word \"idiot\" for a strongly worded copypasta\n/gay for the gayest picture you can ever find\n/bop for a bop")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
