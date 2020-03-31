@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 #command method execution
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v5.0\n/start for this message\n/nigga for cute poetry aka BARS\n/bruh for surprise\n/madarchod for haha very nice desi meme\n/caps <text>")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="v6.0\n/start for this message\n/nigga for cute poetry aka BARS\n/bruh for surprise\n/madarchod for haha very nice desi meme\n/caps <text>\nsay the word \"idiot\" for a strongly worded copypasta")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
@@ -44,16 +44,29 @@ dispatcher.add_handler(madarchod_handler)
 
 
 
-#echoes messages
-def echo(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id,text=update.message.text)
+
+def idiot(update, context):
+    word=(update.message.text).split()
+    f=0
+    i=0
+    while(True):
+        try:
+            if(word[i]=="idiot"):
+                f=1
+            i=i+1
+        except:
+            break
+    
+    if(f):
+        context.bot.send_message(chat_id=update.effective_chat.id,text="What the fuck did you just fucking say about me, you little bitch? I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words.You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You’re fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that’s just with my bare hands.Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little “clever” comment was about to bring down upon you, maybe you would have held your fucking tongue.But you couldn’t, you didn’t, and now you’re paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it.You’re fucking dead, kiddo.")
 
 from telegram.ext import MessageHandler, Filters
 
-#echo_handler = MessageHandler(Filters.text,echo)
-#dispatcher.add_handler(echo_handler)
+idiot_handler = MessageHandler(Filters.text,idiot)
+dispatcher.add_handler(idiot_handler)
 
 #filter crap
+
 
 def caps(update, context):
     text_caps = ' '.join(context.args).upper()
@@ -64,6 +77,7 @@ def caps(update, context):
 
 caps_handler = CommandHandler('caps', caps)
 dispatcher.add_handler(caps_handler)
+
 
 
 updater.start_polling()
