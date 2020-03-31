@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 #command method execution
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v6.0\n/start for this message\n/nigga for cute poetry aka BARS\n/bruh for surprise\n/madarchod for haha very nice desi meme\n/caps <text>\nsay the word \"idiot\" for a strongly worded copypasta")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="v6.9\n/start for this message\n/nigga for cute poetry aka BARS\n/bruh for surprise\n/madarchod for haha very nice desi meme\n/caps <text>\nsay the word \"idiot\" for a strongly worded copypasta\n/gay for the gayest picture you can ever find")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
@@ -26,7 +26,11 @@ def bruh(update,context):
 def madarchod(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="mai madarchod hoon jo isme aaya")
 
+def gay(update,context):
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/wondercoconut/Downloads/gay.jpg','rb'))
 
+def bop(update,context):
+    context.bot.send_voice(chat_id=update.effective_chat.id, voice=open('/home/wondercoconut/Downloads/bebop.mp3', 'rb'))
 
 #commands
 from telegram.ext import CommandHandler
@@ -42,7 +46,11 @@ dispatcher.add_handler(bruh_handler)
 madarchod_handler = CommandHandler('madarchod',madarchod)
 dispatcher.add_handler(madarchod_handler)
 
+gay_handler = CommandHandler('gay',gay)
+dispatcher.add_handler(gay_handler)
 
+bop_handler = CommandHandler('bop',bop)
+dispatcher.add_handler(bop_handler)
 
 
 def idiot(update, context):
@@ -72,8 +80,6 @@ def caps(update, context):
     text_caps = ' '.join(context.args).upper()
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
-#def neural(update, context):
-    #context.bot.send_message(chat_id=update.effective_chat.id, text="mkc do I look like a neural network to you")
 
 caps_handler = CommandHandler('caps', caps)
 dispatcher.add_handler(caps_handler)
