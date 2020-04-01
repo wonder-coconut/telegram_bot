@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 #command method execution
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v11.0"
+    context.bot.send_message(chat_id=update.effective_chat.id, text="v12.0"
     "\n/start for this message"
     "\n/nigga for cute poetry aka BARS"
     "\n/bruh for surprise"
@@ -19,7 +19,8 @@ def start(update, context):
     "\n/wonder for a retarded fuck portrait"
     "\npigeon for something"
     "\nbe horny"
-    "\n/engage to remove the big guns")
+    "\n/engage to remove the big guns"
+    "\n/art for a personification of the internet")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
@@ -54,6 +55,9 @@ def wonder(update,context):
 def boomer(update,context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="ok boomer")
 
+def art(update,context):
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo= open('/home/wondercoconut/Downloads/art.png','rb'))
+
 #commands
 from telegram.ext import CommandHandler
 start_handler = CommandHandler('start', start)
@@ -79,6 +83,9 @@ dispatcher.add_handler(bop_handler)
 
 engage_handler = CommandHandler('engage',boomer)
 dispatcher.add_handler(engage_handler)
+
+art_handler = CommandHandler('art',art)
+dispatcher.add_handler(art_handler)
 
 def pigeon(update,context):
     word=(update.message.text).split()
@@ -117,8 +124,8 @@ from telegram.ext import MessageHandler, Filters
 pigeon_handler = MessageHandler(Filters.text,pigeon)
 dispatcher.add_handler(pigeon_handler)
 
-#boomer_handler = MessageHandler(Filters.photo,boomer)
-#dispatcher.add_handler(boomer_handler)
+boomer_handler = MessageHandler(Filters.photo,boomer)
+dispatcher.add_handler(boomer_handler)
 
 def caps(update, context):
     text_caps = ' '.join(context.args).upper()
