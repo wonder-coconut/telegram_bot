@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 #command method execution
 def getwoke(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v12.0"
+    context.bot.send_message(chat_id=update.effective_chat.id, text="v14.0"
     "\n/getwoke for this message"
     "\n/nigga for cute poetry aka BARS"
     "\n/bruh for surprise"
@@ -21,7 +21,8 @@ def getwoke(update, context):
     "\nbe horny"
     "\n/engage to remove the big guns"
     "\n/art for a personification of the internet"
-    "\nnice for a ceaser")
+    "\nnice for a ceaser"
+    "\nmuda")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
@@ -104,7 +105,10 @@ def pigeon(update,context):
                 f=4
             elif(word[i].lower()=='nice'):
                 f=5
-            
+            elif(word[i].lower()=='muda'):
+                f=6
+            elif(word[i].lower()=='ora'):
+                f=7
             i=i+1
         except:
             break
@@ -121,7 +125,10 @@ def pigeon(update,context):
         context.bot.send_message(chat_id=update.effective_chat.id, text="okbuddyretard")  
     elif f==5:
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/wondercoconut/Downloads/ceaser.jpg','rb'))
-
+    elif f==6:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="ora")
+    elif f==7:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="muda")
 #filters
 
 from telegram.ext import MessageHandler, Filters
