@@ -7,9 +7,9 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 #command method execution
-def start(update, context):
+def getwoke(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="v12.0"
-    "\n/start for this message"
+    "\n/getwoke for this message"
     "\n/nigga for cute poetry aka BARS"
     "\n/bruh for surprise"
     "\n/madarchod for haha very nice desi meme"
@@ -20,7 +20,8 @@ def start(update, context):
     "\npigeon for something"
     "\nbe horny"
     "\n/engage to remove the big guns"
-    "\n/art for a personification of the internet")
+    "\n/art for a personification of the internet"
+    "\nnice for a ceaser")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
@@ -60,8 +61,8 @@ def art(update,context):
 
 #commands
 from telegram.ext import CommandHandler
-start_handler = CommandHandler('start', start)
-dispatcher.add_handler(start_handler)
+getwoke_handler = CommandHandler('getwoke', getwoke)
+dispatcher.add_handler(getwoke_handler)
 
 nigga_handler = CommandHandler('nigga',nigga)
 dispatcher.add_handler(nigga_handler)
@@ -101,6 +102,8 @@ def pigeon(update,context):
                 f=3
             elif(word[i].lower()=='idiot'):
                 f=4
+            elif(word[i].lower()=='nice'):
+                f=5
             
             i=i+1
         except:
@@ -116,6 +119,8 @@ def pigeon(update,context):
         context.bot.send_message(chat_id=update.effective_chat.id, text="you're gonna die a virgin you incel fuck")
     elif f==4:
         context.bot.send_message(chat_id=update.effective_chat.id, text="okbuddyretard")  
+    elif f==5:
+        context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/wondercoconut/Downloads/ceaser.jpg','rb'))
 
 #filters
 
