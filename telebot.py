@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 #command method execution
 def getwoke(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v14.0"
+    context.bot.send_message(chat_id=update.effective_chat.id, text="v15.0"
     "\n/getwoke for this message"
     "\n/nigga for cute poetry aka BARS"
     "\n/bruh for surprise"
@@ -22,7 +22,10 @@ def getwoke(update, context):
     "\n/engage to remove the big guns"
     "\n/art for a personification of the internet"
     "\nnice for a ceaser"
-    "\nmuda")
+    "\nmuda"
+    "\nask him what bear is best"
+    "\nwhat what what what"
+    "\nbible time ezekiel boy")
 
 def nigga(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="fuck bitches, get money nigga cat nigga cat")
@@ -95,40 +98,75 @@ def pigeon(update,context):
     i=0
     while(True):
         try:
-            if(word[i].lower()=='gopika'):
+            s=word[i].lower()
+            if(s=='gopika'):
                 f=1
-            if(word[i].lower()=='pigeon'):
+            if(s=='pigeon'):
                 f=2
-            elif(word[i].lower()=='sex' or word[i].lower()=='sexy'):
+            if(s=='sex' or s=='sexy'):
                 f=3
-            elif(word[i].lower()=='idiot'):
+            if(s=='idiot'):
                 f=4
-            elif(word[i].lower()=='nice'):
+            if(s=='nice'):
                 f=5
-            elif(word[i].lower()=='muda'):
+            if(s=='muda'):
                 f=6
-            elif(word[i].lower()=='ora'):
+            if(s=='ora'):
                 f=7
+            if(s=='what'):
+                f=8
+            if(s=='righteous'):
+                f=9
             i=i+1
         except:
             break
     
     if f==1:
         context.bot.send_message(chat_id=update.effective_chat.id, text="gopika randi")
-    elif f==2 :
-        
+    if f==2 : 
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/wondercoconut/Downloads/pigeon.jpg','rb'))
         context.bot.send_message(chat_id=update.effective_chat.id,text='gang shit')
-    elif f==3:
+    if f==3:
         context.bot.send_message(chat_id=update.effective_chat.id, text="you're gonna die a virgin you incel fuck")
-    elif f==4:
+    if f==4:
         context.bot.send_message(chat_id=update.effective_chat.id, text="okbuddyretard")  
-    elif f==5:
+    if f==5:
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/wondercoconut/Downloads/ceaser.jpg','rb'))
-    elif f==6:
+    if f==6:
         context.bot.send_message(chat_id=update.effective_chat.id, text="ora")
-    elif f==7:
+    if f==7:
         context.bot.send_message(chat_id=update.effective_chat.id, text="muda")
+    if f==8:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="SAY WHAT AGAIN I DARE YA I DOUBLE DARE YA MOTHERFUCKER SAY WHAT ONE MORE GODDAMN TIME")
+    if f==9:
+        s='''ezekiel 25:17
+        the path of the righteous man is 
+        beset on all sides by the inequities 
+        of the selfish
+        and the tyranny of evil men
+        blessed is he
+        who
+        in the name of charity and goodwill
+        shepherds the weak through the valley 
+        of darkness
+        for he is truly his brother's keeper
+        and the finder
+        of lost children
+        And I will strike down upon thee 
+        with 
+        great vengeance 
+        and 
+        furious anger
+        those who attempt to 
+        poison 
+        and 
+        destroy 
+        my brothers
+        and you will know
+        my name is the LORD
+        when I lay my vengeance
+        upon Thee.'''
+        context.bot.send_message(chat_id=update.effective_chat.id, text=s)
 #filters
 
 from telegram.ext import MessageHandler, Filters
