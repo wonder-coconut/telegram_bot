@@ -1,14 +1,16 @@
-from telegram.ext import Updater
-updater = Updater(token='613557360:AAEy2hhuUHbk2ghd1A23E8pGtOtCiIGu_oI', use_context=True)
-
-dispatcher = updater.dispatcher
-
+from telegram.ext import Updater,CommandHandler,MessageHandler, Filters 
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-#command method execution
+def getToken():
+    tokenFile = open('/home/wondercoconut/python3/telegram_bot/token.txt','r')
+    tokentxt = tokenFile.read()
+    Token = tokentxt.split('\n')
+    return Token[0]
+
+#methods for all the wack shit the bot actually does
+
 def getwoke(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="v15.0"
+    update.message.reply_text("v15.0"
     "\n/getwoke for this message"
     "\n/nigga for cute poetry aka BARS"
     "\n/bruh for surprise"
@@ -43,6 +45,10 @@ def bruh(update,context):
 def madarchod(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="mai madarchod hoon jo isme aaya")
 
+def caps(update, context):
+    text_caps = ' '.join(context.args).upper()
+    context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
+
 def gay(update,context):
     context.bot.send_message(chat_id=update.effective_chat.id,text="please be patient you imbecile")
     context.bot.send_voice(chat_id=update.effective_chat.id, voice=open('/home/wondercoconut/Downloads/robbers.mp3', 'rb'))
@@ -62,35 +68,6 @@ def boomer(update,context):
 
 def art(update,context):
     context.bot.send_photo(chat_id=update.effective_chat.id, photo= open('/home/wondercoconut/Downloads/art.png','rb'))
-
-#commands
-from telegram.ext import CommandHandler
-getwoke_handler = CommandHandler('getwoke', getwoke)
-dispatcher.add_handler(getwoke_handler)
-
-nigga_handler = CommandHandler('nigga',nigga)
-dispatcher.add_handler(nigga_handler)
-
-bruh_handler = CommandHandler('bruh',bruh)
-dispatcher.add_handler(bruh_handler)
-
-madarchod_handler = CommandHandler('madarchod',madarchod)
-dispatcher.add_handler(madarchod_handler)
-
-gay_handler = CommandHandler('gay',gay)
-dispatcher.add_handler(gay_handler)
-
-wonder_handler = CommandHandler('wonder',wonder)
-dispatcher.add_handler(wonder_handler)
-
-bop_handler = CommandHandler('bop',bop)
-dispatcher.add_handler(bop_handler)
-
-engage_handler = CommandHandler('engage',boomer)
-dispatcher.add_handler(engage_handler)
-
-art_handler = CommandHandler('art',art)
-dispatcher.add_handler(art_handler)
 
 def pigeon(update,context):
     word=(update.message.text).split()
@@ -167,24 +144,60 @@ def pigeon(update,context):
         when I lay my vengeance
         upon Thee.'''
         context.bot.send_message(chat_id=update.effective_chat.id, text=s)
-#filters
 
-from telegram.ext import MessageHandler, Filters
+#commands
+def main():
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-pigeon_handler = MessageHandler(Filters.text,pigeon)
-dispatcher.add_handler(pigeon_handler)
+    updater = Updater(token = getToken(), use_context=True)
+    dispatcher = updater.dispatcher
 
-boomer_handler = MessageHandler(Filters.photo,boomer)
-dispatcher.add_handler(boomer_handler)
+    getwoke_handler = CommandHandler('getwoke', getwoke)
+    dispatcher.add_handler(getwoke_handler)
 
-def caps(update, context):
-    text_caps = ' '.join(context.args).upper()
-    context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
+    nigga_handler = CommandHandler('nigga',nigga)
+    dispatcher.add_handler(nigga_handler)
+
+    bruh_handler = CommandHandler('bruh',bruh)
+    dispatcher.add_handler(bruh_handler)
+
+    madarchod_handler = CommandHandler('madarchod',madarchod)
+    dispatcher.add_handler(madarchod_handler)
+
+    gay_handler = CommandHandler('gay',gay)
+    dispatcher.add_handler(gay_handler)
+
+    wonder_handler = CommandHandler('wonder',wonder)
+    dispatcher.add_handler(wonder_handler)
+
+    bop_handler = CommandHandler('bop',bop)
+    dispatcher.add_handler(bop_handler)
+
+    engage_handler = CommandHandler('engage',boomer)
+    dispatcher.add_handler(engage_handler)
+
+    art_handler = CommandHandler('art',art)
+    dispatcher.add_handler(art_handler)
+
+    pigeon_handler = MessageHandler(Filters.text,pigeon)
+    dispatcher.add_handler(pigeon_handler)
+
+    boomer_handler = MessageHandler(Filters.photo,boomer)
+    dispatcher.add_handler(boomer_handler)
+
+    caps_handler = CommandHandler('caps', caps)
+    dispatcher.add_handler(caps_handler)
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
 
 
-caps_handler = CommandHandler('caps', caps)
-dispatcher.add_handler(caps_handler)
 
 
 
-updater.start_polling()
+
+
+
