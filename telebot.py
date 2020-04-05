@@ -2,7 +2,7 @@ from telegram.ext import Updater,CommandHandler,MessageHandler, Filters
 import logging
 
 def getToken():
-    tokenFile = open('/home/wondercoconut/python3/telegram_bot/token.txt','r')
+    tokenFile = open('/home/wondercoconut/python3/botshit/token.txt','r')
     tokentxt = tokenFile.read()
     Token = tokentxt.split('\n')
     return Token[0]
@@ -10,7 +10,8 @@ def getToken():
 #methods for all the wack shit the bot actually does
 
 def getwoke(update, context):
-    update.message.reply_text("v15.0"
+    update.message.reply_text("v16.0"
+    "\npress F to pay respects"
     "\n/getwoke for this message"
     "\n/nigga for cute poetry aka BARS"
     "\n/bruh for surprise"
@@ -76,6 +77,8 @@ def pigeon(update,context):
     while(True):
         try:
             s=word[i].lower()
+            if (s=='f'):
+                f=10
             if(s=='gopika'):
                 f=1
             if(s=='pigeon'):
@@ -97,7 +100,9 @@ def pigeon(update,context):
             i=i+1
         except:
             break
-    
+    if f==10:
+        context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/wondercoconut/Downloads/raspi.jpg','rb'))
+        context.bot.send_message(chat_id=update.effective_chat.id, text='F')
     if f==1:
         context.bot.send_message(chat_id=update.effective_chat.id, text="gopika randi")
     if f==2 : 
